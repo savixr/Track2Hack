@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Fraunces', serif;
+
+  --color-ink-950: #0a0e14;
+  --color-ink-900: #0f1419;
+  --color-ink-800: #161b22;
+  --color-ink-700: #1f2630;
+  --color-ink-600: #2d3744;
+  --color-ink-500: #4a5568;
+
+  --color-accent-400: #4ade80;
+  --color-accent-500: #22c55e;
+  --color-accent-600: #16a34a;
+
+  --color-paper: #F7F4ED;
+  --color-paper-warm: #F1ECE0;
+  --color-paper-line: #E0D9C8;
+
+  --color-rust: #C2491D;
+  --color-rust-soft: #E8C9B8;
+
+  --color-slate-ink: #1C1F26;
+  --color-slate-soft: #3D4A5C;
+
+  --color-moss: #4F6F52;
+}
+
+/* Dark mode overrides — same semantic tokens, different values.
+   Applying .dark to <html> repaints the whole app since every
+   component uses these tokens (bg-paper, text-slate-ink, etc.)
+   rather than literal colors. */
+.dark {
+  --color-paper: #15171C;
+  --color-paper-warm: #1B1E24;
+  --color-paper-line: #2B2F38;
+
+  --color-rust: #E07A4A;
+  --color-rust-soft: #4A332B;
+
+  --color-slate-ink: #EDEAE2;
+  --color-slate-soft: #9098A8;
+
+  --color-moss: #7FA37F;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d3744;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.prose-invert {
+  color: var(--color-slate-soft);
+}
+.prose-invert h1, .prose-invert h2, .prose-invert h3 {
+  color: var(--color-slate-ink);
+  font-family: 'Fraunces', serif;
+}
+.prose-invert a {
+  color: var(--color-rust);
+}
+.prose-invert strong {
+  color: var(--color-slate-ink);
+}
+.prose-invert code {
+  background: var(--color-paper-warm);
+  color: var(--color-rust);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.875em;
+  border: 1px solid var(--color-paper-line);
+}
+.prose-invert pre {
+  background: var(--color-ink-900);
+  border: 1px solid var(--color-ink-900);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.prose-invert pre code {
+  background: none;
+  color: #F1ECE0;
+  border: none;
+  padding: 0;
+}
+.prose-invert blockquote {
+  border-left: 3px solid var(--color-paper-line);
+  padding-left: 1rem;
+  color: var(--color-slate-soft);
+}
+.prose-invert ul, .prose-invert ol {
+  padding-left: 1.5rem;
+}
